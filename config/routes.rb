@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root 'static#index'
+
+  get "/d3/static/*static_url" => "static#d3_static"
+  get "/d3/:language/*tooltip_url" => "static#d3_tooltip"
+
+  get "/images/*images_url" => "static#d3_images"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
