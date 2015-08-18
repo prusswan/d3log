@@ -38,7 +38,7 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
 
     {region}.battle.net/d3/{locale}/{rest}
   */
-  var URL_PATTERN_BASE = new RegExp('^http://([a-z]{2})\\.battle\\.net/d3/([a-z]{2})/(.+)');
+  var URL_PATTERN_BASE = new RegExp('^http://(.+)/d3/([a-z]{2})/(.+)');
   var URL_PATTERN_SELF = new RegExp('([a-z]{2})\\.battle\\.net/d3/static/js/tooltips\\.js'); // Used to get region from the <script> tag
 
   /*
@@ -176,6 +176,8 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
     parseUrl(link, params);
     parseOptions(link, params);
 
+    console.log('params', params, link);
+
     if(!params.key || currentLink == link) {
       return;
     }
@@ -198,19 +200,23 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
     Tooltip.hide();
 
     currentLink = null;
-    currentParams = null;
+    // currentParams = null;
   }
 
   function parseUrl(link, params) {
-
     if(!link.href.match(URL_PATTERN_BASE)) {
       return;
     }
 
-    var region = RegExp.$1;
+    var domain = RegExp.$1;
     var locale = RegExp.$2;
-
     var rest = RegExp.$3;
+
+    var region = 'us'
+    var domain_regex = new RegExp('([a-z]{2})\\.battle\\.net');
+    if (domain.match(domain_regex)) {
+      region = RegExp.$1;
+    }
 
     for(var i = 0; i < URL_PATTERNS.length; ++i) {
 
@@ -274,6 +280,7 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
     if(currentParams != null && getCacheKeyFromParams(params) == getCacheKeyFromParams(currentParams)) {
       showTooltip(data);
     }
+    showTooltip(data);
   }
 
   function getTooltip(params) {

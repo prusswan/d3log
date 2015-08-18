@@ -29,8 +29,17 @@ try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
 //]]>
 </script>
 <![endif]-->
+
+<!-- <script src="http://us.battle.net/d3/static/local-common/js/common-game-site.js"></script> -->
+<!-- <script src="http://us.battle.net/d3/static/js/d3.js"></script> -->
+<script src="http://us.battle.net/d3/static/js/profile/profile.js"></script>
+
+
 <script type="text/javascript">
 //<![CDATA[
+
+var currentParams = { key: ""};
+
 var Core = Core || {},
 Login = Login || {};
 Core.staticUrl = '/d3/static';
@@ -61,6 +70,7 @@ _gaq.push(['_setAllowLinker', true]);
 _gaq.push(['_trackPageview']);
 //]]>
 </script>
+
 <meta property="fb:app_id" content="155068716934" />
 <meta property="og:site_name" content="Diablo III" />
 <meta property="og:locale" content="zh_TW" />
@@ -231,10 +241,10 @@ class="icon-posts link-last"
 
             Profile.suppressAjaxLoad = true;
 
-            if (window.history.pushState) {
-              var activeHero = Profile.getHero(44062537);
-              window.history.replaceState(activeHero, activeHero.name, activeHero.id);
-            }
+            // if (window.history.pushState) {
+            //   var activeHero = Profile.getHero(44062537);
+            //   window.history.replaceState(activeHero, activeHero.name, activeHero.id);
+            // }
             Profile.bindHistory();
         });
     //]]>
@@ -2776,7 +2786,7 @@ other: '其他'
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
-Menu.initialize('/data/menu.json');
+// Menu.initialize('/data/menu.json');
 Search.initialize('/d3/zh/search/ta');
 Tooltip.maxWidth = 350;
 });

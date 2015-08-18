@@ -5165,6 +5165,9 @@ var Toggle = {
 };/**
  * Dynamically create tooltips, append specific content from different medians, and display at certain positions.
  */
+
+var currentParams = {};
+
 var Tooltip = {
 
   /**
@@ -5411,6 +5414,8 @@ var Tooltip = {
             url = Core.baseUrl + content;
           }
 
+          url = 'http://us.battle.net' + url;
+
           if (options.showLoading) {
             window.setTimeout($.proxy(function() {
               if (!this.visible && !this.cache[content]) {
@@ -5418,6 +5423,9 @@ var Tooltip = {
               }
             }, this), 500);
           }
+          var currentParams = { key: 'sdfds'};
+          $.getScript(url + '?format=jsonp');
+          return;
 
           $.ajax({
             type: "GET",

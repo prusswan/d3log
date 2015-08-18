@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require_tree ../../../vendor/assets/javascripts/.
+
+//= require tooltips.js
+//= require common-game-site.js
+//= require d3.js
