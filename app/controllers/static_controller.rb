@@ -34,11 +34,12 @@ class StaticController < ApplicationController
 
   def fetch_url(url)
     p url
-    r = Net::HTTP.get_response URI.parse(url)
-    if r.is_a? Net::HTTPSuccess
-      r.body.force_encoding("UTF-8")
-    else
-      nil
-    end
+    r = Curl.get url
+    # if r.is_a? Net::HTTPSuccess
+    #   r.body.force_encoding("UTF-8")
+    # else
+    #   nil
+    # end
+    r.body_str
   end
 end
