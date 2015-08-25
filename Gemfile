@@ -44,4 +44,4 @@ group :development, :test do
 end
 
 gem 'figaro'
-gem 'curb'
+gem 'curb', platforms: :ruby
