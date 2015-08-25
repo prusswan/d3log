@@ -33,13 +33,18 @@ class StaticController < ApplicationController
   end
 
   def fetch_url(url)
-    p url
-    r = Curl.get url
-    # if r.is_a? Net::HTTPSuccess
-    #   r.body.force_encoding("UTF-8")
-    # else
-    #   nil
-    # end
-    r.body_str
+    # p url
+
+    if Gem.win_platform?
+      r = Net::HTTP.get_response URI.parse(url)
+      if r.is_a? Net::HTTPSuccess
+        r.body.force_encoding("UTF-8")
+      else
+        nil
+      end
+    else
+      r = Curl.get url
+      r.body_str
+    end
   end
 end
