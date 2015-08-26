@@ -116,7 +116,7 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
 
   function initialize() {
     setTimeout(getCss, 1);
-    setTimeout(bindEvents, 1);
+    // setTimeout(bindEvents, 1);
   }
 
   function getCss() {
@@ -225,6 +225,9 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
     if (domain.match(domain_regex)) {
       region = RegExp.$1;
     }
+    else if(locale == 'zh') {
+      region = 'tw';
+    }
 
     console.log('parseUrl', link.href);
 
@@ -279,24 +282,34 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
     clearTimeout(loadingTimer);
 
     console.log('registerdata', data);
-    // currentData = data;
-    // currentTooltip.cache[currentParams.key] = data;
-    // if (currentTooltip.currentNode === currentLink) {
-    //   // currentTooltip._position(currentLink, data, currentOptions);
-    // }
-
+    // return;
+    currentData = data;
     var params = data.params;
 
-    if(params.type == "item") {
+    currentTooltip.cache[params.key] = data; // save the data in cache, item-type is the key
+
+    // check the active link
+    if (currentLink.attr('href').match(new RegExp('item/()([^#\\?]+)$'))) {
+      // if (currentTooltip.currentNode === currentLink) {
+      var matched_key = RegExp.$2;
+      console.log('matched_key', matched_key, params.key);
+      if ((params.key.indexOf(matched_key) > -1) || (matched_key.indexOf(params.key) > -1))  {
+        currentTooltip.cache[matched_key] = data;
+        console.log('position from registerData', currentLink, data);
+        currentTooltip._position(currentLink, data.tooltipHtml, currentOptions);
+      }
+        // var params = data.params;
+    }
+
+    if(params.type == "item" && currentParams.key != "") {
       params.key = currentParams.key;
     }
 
-    saveData(params, data);
+    // saveData(params, data);
 
-    if(currentParams != null && getCacheKeyFromParams(params) == getCacheKeyFromParams(currentParams)) {
-      showTooltip(data);
-    }
-    showTooltip(data);
+    // if(currentParams != null && getCacheKeyFromParams(params) == getCacheKeyFromParams(currentParams)) {
+    //   showTooltip(data);
+    // }
   }
 
   function getTooltip(params) {
@@ -357,8 +370,8 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
   // Public methods
   this.registerData = registerData;
   this.showTooltip = showTooltip;
-
-
+  this.getKey = getCacheKeyFromParams;
+  this.saveData = saveData;
 
   // HTML Helpers
   var $ = {

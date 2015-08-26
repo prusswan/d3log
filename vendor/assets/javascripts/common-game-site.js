@@ -5166,8 +5166,6 @@ var Toggle = {
  * Dynamically create tooltips, append specific content from different medians, and display at certain positions.
  */
 
-var currentParams = {};
-
 var Tooltip = {
 
   /**
@@ -5369,6 +5367,8 @@ var Tooltip = {
     options = $.extend({}, this.options, options || {});
     this.currentNode = node = $(node);
 
+    console.log('setting currentNode', this.currentNode);
+
     // Update trigger node
     if (options.mode !== 'click') {
       node.unbind('mouseout.tooltip').bind('mouseout.tooltip', $.proxy(function() {
@@ -5398,14 +5398,22 @@ var Tooltip = {
 
     // Content: DOM node created w/ jQuery
     if (typeof content === 'object') {
+      console.log('positioning object', content);
       this._position(node, content, options);
 
     } else if (typeof content === 'string') {
 
       // Content: AJAX
       if (options.ajax) {
+        // console.log('content', content);
+        node.attr('href').match(new RegExp('item/()([^#\\?]+)$'));
+        var item_key = RegExp.$2;
         if (this.cache[content]) {
+          console.log('position content from cache');
           this._position(node, this.cache[content], options);
+        } else if (this.cache[item_key]) {
+          console.log('position item content from cache', item_key, this.cache[item_key]);
+          this._position(node, this.cache[item_key].tooltipHtml, options);
         } else {
           var url = content;
 
@@ -5416,8 +5424,9 @@ var Tooltip = {
 
           var URL_QUERY_BASE = 'http://{region}.battle.net';
           URL_QUERY_BASE = 'http://us.battle.net';
-          url = (URL_QUERY_BASE + url);
-            // .replace('{region}', Core.region);
+          Core.region = 'us';
+          var remote_url = (URL_QUERY_BASE + url)
+            .replace('{region}', Core.region);
 
           console.log('common-game-site', url);
 
@@ -5428,17 +5437,18 @@ var Tooltip = {
               }
             }, this), 500);
           }
-          console.log('this', this);
+          // console.log('this', this, this.class);
           console.log('node', node);
           console.log('options', options);
           // console.log('content', content);
 
-          // currentTooltip = this;
-          // currentLink = node;
+          currentTooltip = this;
+          currentLink = node;
           // currentParams.key = content;
-          // currentOptions = options;
+          currentOptions = options;
 
-          $.getScript(url + '?format=jsonp');
+          console.log('fetching tooltip content, to be positioned');
+          $.getScript(remote_url + '?format=jsonp');
           return;
 
           $.ajax({
@@ -5447,8 +5457,11 @@ var Tooltip = {
             dataType: "html",
             global: false,
             success: $.proxy(function(data) {
+              currentData = data;
+              console.log('proxy data', data);
               this.cache[content] = data;
               if (this.currentNode === node) {
+                console.log('attaching to node', node);
                 this._position(node, data, options);
               }
             }, this),
@@ -5487,6 +5500,7 @@ var Tooltip = {
         .removeClass(this.options.location)
         .removeClass(this.options.className);
 
+      console.log('unset currentNode');
       this.currentNode = null;
       this.visible = false;
 
@@ -5540,6 +5554,7 @@ var Tooltip = {
     }
 
     if (typeof content === 'string') {
+      console.log('attempt to position content:', content.substring(0,200));
       this.contentCell.html(content);
     } else {
       this.contentCell.empty().append(content);

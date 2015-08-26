@@ -157,6 +157,9 @@ D3.Tooltips = { // Reminder: Keep in sync with the equivalent code in tooltips.j
 
 				node = $(node);
 
+				console.log("tooltip_factory", node);
+				Core.baseUrl = '/d3/en';
+
 				D3.Tooltips.show(node, Core.baseUrl + '/tooltip/' + node.data('d3tooltip'))
 			},
 			key: "data-d3tooltip"
@@ -171,6 +174,8 @@ D3.Tooltips = { // Reminder: Keep in sync with the equivalent code in tooltips.j
 				if (node.rel == 'np' || node.getAttribute('data-d3tooltip') || node.getAttribute('data-tooltip')) {
 					return;
 				}
+
+				console.log("tooltip_factory_for_a", node);
 
 				D3.Tooltips.show($(node), D3.Tooltips.parseUrl(node));
 			}
@@ -199,7 +204,8 @@ D3.Tooltips = { // Reminder: Keep in sync with the equivalent code in tooltips.j
       region = RegExp.$1;
     }
     else if (locale === 'zh') {
-    	region = 'tw'
+    	// region = 'tw';
+    	locale == 'en';
     }
 
 		for(var i = 0; i < D3.Tooltips.URL_PATTERNS.length; ++i) {
@@ -225,9 +231,9 @@ D3.Tooltips = { // Reminder: Keep in sync with the equivalent code in tooltips.j
 				.replace('{folder}', folder)
 				.replace('{key}',    key);
 
+			console.log('core_url', Core.projectUrl + '/' + locale + '/tooltip/' + tooltipType.url);
 			return Core.projectUrl + '/' + locale + '/tooltip/' + url;
-			console.log('core_url', Core.projectUrl + '/' + locale + '/tooltip/' + tooltipType.url)
-			console.log('tooltip_url',url);
+			// console.log('tooltip_url',url);
 			// return url;
 		}
 	},
@@ -237,6 +243,8 @@ D3.Tooltips = { // Reminder: Keep in sync with the equivalent code in tooltips.j
 		if(!url) {
 			return;
 		}
+
+
 
 		Tooltip.show(node, url, {
 			ajax: true,
