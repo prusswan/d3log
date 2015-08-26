@@ -6,6 +6,12 @@
     - Added support for follower skills
 */
 
+var currentLink;
+var currentParams = {key: 'sfdf'};
+var currentTooltip;
+var currentOptions;
+var currentData;
+
 if(typeof Bnet == 'undefined') var Bnet = {};
 if(typeof Bnet.D3 == 'undefined') Bnet.D3 = {};
 
@@ -99,8 +105,8 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
 
   // State
   var loadingTimer;
-  var currentLink;
-  var currentParams;
+  // var currentLink;
+  // var currentParams;
 
 
 
@@ -185,6 +191,8 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
     currentLink = link;
     currentParams = params;
 
+    console.log('mouseover_params', params);
+
     var data = getTooltip(params);
     if(data != null) {
       showTooltip(data);
@@ -217,6 +225,8 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
     if (domain.match(domain_regex)) {
       region = RegExp.$1;
     }
+
+    console.log('parseUrl', link.href);
 
     for(var i = 0; i < URL_PATTERNS.length; ++i) {
 
@@ -266,8 +276,14 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
   }
 
   function registerData(data) {
-
     clearTimeout(loadingTimer);
+
+    console.log('registerdata', data);
+    // currentData = data;
+    // currentTooltip.cache[currentParams.key] = data;
+    // if (currentTooltip.currentNode === currentLink) {
+    //   // currentTooltip._position(currentLink, data, currentOptions);
+    // }
 
     var params = data.params;
 
@@ -340,6 +356,7 @@ if(typeof Bnet.D3.Tooltips == 'undefined') Bnet.D3.Tooltips = new function() { /
 
   // Public methods
   this.registerData = registerData;
+  this.showTooltip = showTooltip;
 
 
 

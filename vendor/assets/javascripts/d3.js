@@ -69,6 +69,9 @@ D3.Icons = {
 
 D3.Tooltips = { // Reminder: Keep in sync with the equivalent code in tooltips.js
 
+  URL_CSS: 'http://{region}.battle.net/d3/static/css/',
+  URL_QUERY_BASE: 'http://{region}.battle.net/d3/{locale}/tooltip/',
+
 	TYPES: {
 		item: {
 			type: 'item',
@@ -179,6 +182,8 @@ D3.Tooltips = { // Reminder: Keep in sync with the equivalent code in tooltips.j
 			return;
 		}
 
+		console.log('parseurl_d3', link);
+
 		// Use getAttribute() so that it pulls in the raw value
 		// Pass 2 as a flag so that IE doesn't return a full path
 		if (!link.getAttribute('href', 2).match(D3.Tooltips.URL_PATTERN_BASE)) {
@@ -187,6 +192,15 @@ D3.Tooltips = { // Reminder: Keep in sync with the equivalent code in tooltips.j
 
 		var locale = RegExp.$1;
 		var rest = RegExp.$2;
+
+	  var region = 'us'
+    var domain_regex = new RegExp('([a-z]{2})\\.battle\\.net');
+    if (domain.match(domain_regex)) {
+      region = RegExp.$1;
+    }
+    else if (locale === 'zh') {
+    	region = 'tw'
+    }
 
 		for(var i = 0; i < D3.Tooltips.URL_PATTERNS.length; ++i) {
 
@@ -205,11 +219,16 @@ D3.Tooltips = { // Reminder: Keep in sync with the equivalent code in tooltips.j
 
 			var tooltipType = D3.Tooltips.TYPES[urlPattern.params.type];
 
-			var url = tooltipType.url
+			var url = (tooltipType.url)
+				// .replace('{region}', region)
+				// .replace('{locale}', locale)
 				.replace('{folder}', folder)
 				.replace('{key}',    key);
 
 			return Core.projectUrl + '/' + locale + '/tooltip/' + url;
+			console.log('core_url', Core.projectUrl + '/' + locale + '/tooltip/' + tooltipType.url)
+			console.log('tooltip_url',url);
+			// return url;
 		}
 	},
 

@@ -5414,7 +5414,12 @@ var Tooltip = {
             url = Core.baseUrl + content;
           }
 
-          url = 'http://us.battle.net' + url;
+          var URL_QUERY_BASE = 'http://{region}.battle.net';
+          URL_QUERY_BASE = 'http://us.battle.net';
+          url = (URL_QUERY_BASE + url);
+            // .replace('{region}', Core.region);
+
+          console.log('common-game-site', url);
 
           if (options.showLoading) {
             window.setTimeout($.proxy(function() {
@@ -5423,7 +5428,16 @@ var Tooltip = {
               }
             }, this), 500);
           }
-          var currentParams = { key: 'sdfds'};
+          console.log('this', this);
+          console.log('node', node);
+          console.log('options', options);
+          // console.log('content', content);
+
+          // currentTooltip = this;
+          // currentLink = node;
+          // currentParams.key = content;
+          // currentOptions = options;
+
           $.getScript(url + '?format=jsonp');
           return;
 
