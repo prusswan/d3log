@@ -5408,12 +5408,19 @@ var Tooltip = {
         // console.log('content', content);
         node.attr('href').match(new RegExp('item/()([^#\\?]+)$'));
         var item_key = RegExp.$2;
+
+        node.attr('href').match(new RegExp('artisan/([^/]+)/recipe/([^#\\?]+)$'));
+        var crafted_key = RegExp.$2;
+
         if (this.cache[content]) {
           console.log('position content from cache');
           this._position(node, this.cache[content], options);
         } else if (this.cache[item_key]) {
           console.log('position item content from cache', item_key, this.cache[item_key]);
           this._position(node, this.cache[item_key].tooltipHtml, options);
+        } else if (this.cache[crafted_key]) {
+          console.log('position crafted item content from cache', crafted_key, this.cache[item_key]);
+          this._position(node, this.cache[crafted_key].tooltipHtml, options);
         } else {
           var url = content;
 
