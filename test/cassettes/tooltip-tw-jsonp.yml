@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://tw.battle.net/d3/zh/tooltip/item/CkAIp-GcvgcSBwgEFbUzhY0d8dNq1R2s05k5HVhG4dkdQ05EUR0QL8oqMIsSON8CQABQElgEYPcCgAFGtQHS-MgVGJWx1qcOUABYAA?format=jsonp
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.10
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      date:
+      - Mon, 07 Sep 2015 08:11:19 GMT
+      server:
+      - Apache
+      x-frame-options:
+      - SAMEORIGIN
+      set-cookie:
+      - login.cookies=1; Domain=battle.net; Path=/
+      content-language:
+      - zh-TW
+      connection:
+      - close
+      transfer-encoding:
+      - chunked
+      content-type:
+      - text/javascript;charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "Bnet.D3.Tooltips.registerData({\r\n\tparams: {\r\n\t\tregion: 'tw',\r\n\t\tlocale:
+        'zh',\r\n\t\ttype: 'item',\r\n\t\tkey: 'profane-pauldrons'\r\n\t},\r\n\ttooltipHtml:
+        \"<div class=\\\"d3-tooltip d3-tooltip-item\\\"\\>\\r\\n<div class=\\\"d3-tooltip-item-wrapper
+        d3-tooltip-item-wrapper-Legendary\\\"\\>\\r\\n<div class=\\\"d3-tooltip-item-border
+        d3-tooltip-item-border-left\\\"\\></div\\>\\r\\n<div class=\\\"d3-tooltip-item-border
+        d3-tooltip-item-border-right\\\"\\></div\\>\\r\\n<div class=\\\"d3-tooltip-item-border
+        d3-tooltip-item-border-top\\\"\\></div\\>\\r\\n<div class=\\\"d3-tooltip-item-border
+        d3-tooltip-item-border-bottom\\\"\\></div\\>\\r\\n<div class=\\\"d3-tooltip-item-border
+        d3-tooltip-item-border-top-left\\\"\\></div\\>\\r\\n<div class=\\\"d3-tooltip-item-border
+        d3-tooltip-item-border-top-right\\\"\\></div\\>\\r\\n<div class=\\\"d3-tooltip-item-border
+        d3-tooltip-item-border-bottom-left\\\"\\></div\\>\\r\\n<div class=\\\"d3-tooltip-item-border
+        d3-tooltip-item-border-bottom-right\\\"\\></div\\>\\r\\n<div class=\\\"tooltip-head
+        tooltip-head-orange\\\"\\>\\r\\n<h3 class=\\\"d3-color-orange\\\"\\>穢瀆肩鎧</h3\\>\\r\\n</div\\>\\r\\n<div
+        class=\\\"tooltip-body effect-bg effect-bg-armor effect-bg-armor-default\\\"\\>\\r\\n<span
+        class=\\\"d3-icon d3-icon-item d3-icon-item-large d3-icon-item-orange\\\"\\>\\r\\n<span
+        class=\\\"icon-item-gradient\\\"\\>\\r\\n<span class=\\\"icon-item-inner icon-item-default\\\"
+        style=\\\"background-image: url(http://media.blizzard.com/d3/icons/items/large/unique_shoulder_101_x1_demonhunter_male.png);\\\"\\>\\r\\n</span\\>\\r\\n</span\\>\\r\\n</span\\>\\r\\n<div
+        class=\\\"d3-item-properties\\\"\\>\\r\\n<ul class=\\\"item-type-right\\\"\\>\\r\\n<li
+        class=\\\"item-slot\\\"\\>肩膀</li\\>\\r\\n</ul\\>\\r\\n<ul class=\\\"item-type\\\"\\>\\r\\n<li\\>\\r\\n<span
+        class=\\\"d3-color-orange\\\"\\>傳奇護肩</span\\>\\r\\n</li\\>\\r\\n</ul\\>\\r\\n<ul
+        class=\\\"item-armor-weapon item-armor-armor\\\"\\>\\r\\n<li class=\\\"big\\\"\\><p\\><span
+        class=\\\"value\\\"\\>601</span\\></p\\></li\\>\\r\\n<li\\>護甲值</li\\>\\r\\n</ul\\>\\r\\n<div
+        class=\\\"item-before-effects\\\"\\></div\\>\\r\\n<ul class=\\\"item-effects\\\"\\>\\r\\n<p
+        class=\\\"item-property-category\\\"\\>主要屬性</p\\>\\r\\n<li class=\\\"d3-color-blue
+        d3-item-property-default\\\"\\><p\\><span class=\\\"value\\\"\\>+445</span\\>
+        敏捷</p\\></li\\>\\r\\n<li class=\\\"d3-color-blue d3-item-property-default\\\"\\><p\\><span
+        class=\\\"value\\\"\\>+416</span\\> 體能</p\\></li\\>\\r\\n<li class=\\\"d3-color-blue
+        d3-item-property-utility\\\"\\><p\\>擊中時有機會造成 <span class=\\\"value\\\"\\>14</span\\><span
+        class=\\\"value\\\"\\>%</span\\> 的範圍傷害</p\\></li\\>\\r\\n<li class=\\\"d3-color-blue
+        d3-item-property-default\\\"\\><p\\><span class=\\\"value\\\"\\>衛哨</span\\>造成的傷害提高
+        <span class=\\\"value\\\"\\>14</span\\><span class=\\\"value\\\"\\>%</span\\>（只限狩魔獵人）</p\\></li\\>\\r\\n<p
+        class=\\\"item-property-category\\\"\\>次要屬性</p\\>\\r\\n<li class=\\\"d3-color-blue
+        d3-item-property-utility\\\"\\><p\\>金幣與生命之球拾取距離延長 <span class=\\\"value\\\"\\>4</span\\>
+        碼</p\\></li\\>\\r\\n<li class=\\\"d3-color-blue d3-item-property-default\\\"\\><p\\>生命之球與藥水恢復量
+        <span class=\\\"value\\\"\\>+20958</span\\></p\\></li\\>\\r\\n</ul\\>\\r\\n<ul
+        class=\\\"item-extras\\\"\\>\\r\\n<li class=\\\"item-reqlevel\\\"\\><span
+        class=\\\"d3-color-gold\\\"\\>需要等級：</span\\><span class=\\\"value\\\"\\>70</span\\></li\\>\\r\\n<li\\>帳號綁定</li\\>\\r\\n</ul\\>\\r\\n<span
+        class=\\\"item-unique-equipped\\\"\\>僅可裝備一件</span\\>\\r\\n<span class=\\\"clear\\\"\\><!--
+        --\\></span\\>\\r\\n</div\\>\\r\\n</div\\>\\r\\n<div class=\\\"tooltip-extension
+        \\\"\\>\\r\\n<div class=\\\"flavor\\\"\\>鑲飾在這副肩鎧上的惡魔頭像會張口吞噬生命之球，將它們轉化之後用來強化穿戴者的能力。遺憾的是，那些惡魔總會在別人聽不到的時候嘟囔著不堪入耳的低語。</div\\>\\r\\n</div\\>\\r\\n</div\\>\\r\\n</div\\>\"\r\n});\r\n"
+    http_version: 
+  recorded_at: Mon, 07 Sep 2015 08:11:19 GMT
+recorded_with: VCR 2.9.3

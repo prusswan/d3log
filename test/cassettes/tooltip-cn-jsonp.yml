@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.diablo3.com.cn/action/profile/item?param=item%2FCkAIp-GcvgcSBwgEFbUzhY0d8dNq1R2s05k5HVhG4dkdQ05EUR0QL8oqMIsSON8CQABQElgEYPcCgAFGtQHS-MgVGJWx1qcOUABYAA&format=jsonp
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.10
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      date:
+      - Mon, 07 Sep 2015 08:19:06 GMT
+      server:
+      - ATS
+      content-language:
+      - zh-CN
+      vary:
+      - Accept-Encoding
+      content-type:
+      - text/html;charset=utf-8
+      age:
+      - '0'
+      connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: "<div class=\"d3-tooltip d3-tooltip-item\">\r\n\t\t<div class=\"tooltip-head
+        tooltip-head-orange\">\r\n\t\t<h3 class=\"d3-color-orange\">渎圣肩铠</h3>\r\n\t</div>\r\n\t<div
+        class=\"tooltip-body effect-bg effect-bg-armor\">\r\n\t\t<span class=\"d3-icon
+        d3-icon-item d3-icon-item-large d3-icon-item-orange\">\r\n\t\t\t<span class=\"icon-item-gradient\">\r\n\t\t\t\t<span
+        class=\"icon-item-inner icon-item-default\" style=\"background-image: url(http://content.battlenet.com.cn/d3/icons-zh-cn/items/large/unique_shoulder_101_x1_demonhunter_male.png);\"></span>\r\n\t\t\t</span>\r\n\t\t</span>\r\n\t\t<div
+        class=\"d3-item-properties\">\r\n\t\t\t<ul class=\"item-type-right\">\r\n\t\t\t\t<li
+        class=\"item-slot\">肩膀</li>\r\n\t\t\t</ul>\r\n\t\t\t<ul class=\"item-type\">\r\n\t\t\t\t<li><span
+        class=\"d3-color-orange\">传奇护肩</span></li>\r\n\t\t\t</ul>\r\n\t\t\t<ul class=\"item-armor-weapon
+        item-armor-armor\">\r\n\t\t\t\t<li class=\"big\">\r\n\t\t\t\t\t<p>\r\n\t\t\t\t\t\t<span
+        class=\"value\">601\r\n</span>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li>护甲</li>\r\n\t\t\t</ul>\r\n\t\t\t<div
+        class=\"item-before-effects\" />\r\n\t\t\t<ul class=\"item-effects\">\r\n\t\t\t\t<p
+        class=\"item-property-category\">主要属性</p>\r\n\t\t\t\t<li class=\"d3-color-blue
+        d3-item-property-default\">\r\n\t\t\t\t\t<p><span class=\"value\">+445</span>
+        点敏捷</p>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"d3-color-blue d3-item-property-default\">\r\n\t\t\t\t\t<p><span
+        class=\"value\">+416</span> 点体能</p>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"d3-color-blue
+        d3-item-property-utility\">\r\n\t\t\t\t\t<p>有一定几率在击中时造成 <span class=\"value\">14</span><span
+        class=\"value\">%</span> 的范围伤害</p>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"d3-color-blue
+        d3-item-property-default\">\r\n\t\t\t\t\t<p>使 <span class=\"value\">箭塔</span>
+        的伤害提高 <span class=\"value\">14</span><span class=\"value\">%</span>（仅限猎魔人）</p>\r\n\t\t\t\t</li>\r\n\t\t\t\t<p
+        class=\"item-property-category\">次要属性</p>\r\n\t\t\t\t<li class=\"d3-color-blue
+        d3-item-property-utility\">\r\n\t\t\t\t\t<p>金币和生命球的拾取范围扩大 <span class=\"value\">4</span>
+        码</p>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"d3-color-blue d3-item-property-default\">\r\n\t\t\t\t\t<p>生命球和药水可使你获得
+        <span class=\"value\">+20958</span> 点生命值</p>\r\n\t\t\t\t</li>\r\n\t\t\t</ul>\r\n\t\t\t<ul
+        class=\"item-extras\">\r\n\t\t\t\t<li class=\"item-reqlevel\">\r\n\t\t\t\t\t<span
+        class=\"d3-color-gold\">需要等级：</span>\r\n\t\t\t\t\t<span class=\"value\">70</span>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li>账号绑定</li>\r\n\t\t\t</ul>\r\n\t\t\t<span
+        class=\"item-unique-equipped\">仅可装备一件</span>\r\n\t\t\t<span class=\"clear\"></span>\r\n\t\t</div>\r\n\t</div>\r\n\t<div
+        class=\"tooltip-extension \">\r\n\t\t<div class=\"flavor\">这副肩甲上装饰的恶魔头像会张口吞噬生命球，吸收它们进而为穿戴者提供额外的益处。美中不足的是，这些恶魔头像常常会向穿戴者灌输邪恶的念头。</div>\r\n\t</div>\r\n</div>"
+    http_version: 
+  recorded_at: Mon, 07 Sep 2015 08:19:06 GMT
+recorded_with: VCR 2.9.3
