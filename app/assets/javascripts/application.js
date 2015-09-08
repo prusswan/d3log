@@ -16,5 +16,7 @@
 //= require_tree .
 
 //= require tooltips.js
+//= require ejs.js
+//= require transform.js
 //= require common-game-site.js
 //= require d3.js
