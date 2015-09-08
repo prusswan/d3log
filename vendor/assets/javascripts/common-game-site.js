@@ -5461,9 +5461,11 @@ var Tooltip = {
           // $.getScript(remote_url + '?format=jsonp');
           // return;
 
+          var whatever_url = 'http://crossorigin.me/' + remote_url;
+
           $.ajax({
             type: "GET",
-            url: remote_url,
+            url: whatever_url,
             dataType: "html",
             global: false,
             success: $.proxy(function(data) {
