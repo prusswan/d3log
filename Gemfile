@@ -44,6 +44,8 @@ group :development, :test do
 
   # gem 'webmock'
   gem 'vcr'
+
+  gem 'teaspoon-jasmine'
 end
 
 gem 'figaro'
