@@ -5435,6 +5435,9 @@ var Tooltip = {
           var remote_url = (URL_QUERY_BASE + url)
             .replace('{region}', Core.region);
 
+          var item_hash = node.data('d3tooltip');
+          remote_url = 'http://www.diablo3.com.cn/action/profile/item?param=' + item_hash;
+
           console.log('common-game-site', url);
 
           if (options.showLoading) {
@@ -5455,12 +5458,12 @@ var Tooltip = {
           currentOptions = options;
 
           console.log('fetching tooltip content, to be positioned');
-          $.getScript(remote_url + '?format=jsonp');
-          return;
+          // $.getScript(remote_url + '?format=jsonp');
+          // return;
 
           $.ajax({
             type: "GET",
-            url: url,
+            url: remote_url,
             dataType: "html",
             global: false,
             success: $.proxy(function(data) {
